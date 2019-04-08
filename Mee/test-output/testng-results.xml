@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="30733" started-at="2019-04-05T19:35:04Z" finished-at="2019-04-05T19:35:34Z">
+  <suite name="Default suite" duration-ms="23559" started-at="2019-04-07T16:17:56Z" finished-at="2019-04-07T16:18:19Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="30733" started-at="2019-04-05T19:35:04Z" finished-at="2019-04-05T19:35:34Z">
+    <test name="Default test" duration-ms="23559" started-at="2019-04-07T16:17:56Z" finished-at="2019-04-07T16:18:19Z">
       <class name="script.homepg">
-        <test-method status="PASS" signature="open()[pri:0, instance:script.homepg@319b92f3]" name="open" is-config="true" duration-ms="18438" started-at="2019-04-05T19:35:04Z" finished-at="2019-04-05T19:35:22Z">
+        <test-method status="PASS" signature="open()[pri:0, instance:script.homepg@319b92f3]" name="open" is-config="true" duration-ms="10826" started-at="2019-04-07T16:17:56Z" finished-at="2019-04-07T16:18:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- open -->
-        <test-method status="PASS" signature="banners()[pri:0, instance:script.homepg@319b92f3]" name="banners" duration-ms="11655" started-at="2019-04-05T19:35:22Z" finished-at="2019-04-05T19:35:34Z">
+        <test-method status="PASS" signature="banners()[pri:0, instance:script.homepg@319b92f3]" name="banners" duration-ms="10600" started-at="2019-04-07T16:18:06Z" finished-at="2019-04-07T16:18:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- banners -->
-        <test-method status="PASS" signature="close()[pri:0, instance:script.homepg@319b92f3]" name="close" is-config="true" duration-ms="608" started-at="2019-04-05T19:35:34Z" finished-at="2019-04-05T19:35:34Z">
+        <test-method status="PASS" signature="close()[pri:0, instance:script.homepg@319b92f3]" name="close" is-config="true" duration-ms="2097" started-at="2019-04-07T16:18:17Z" finished-at="2019-04-07T16:18:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->

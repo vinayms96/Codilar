@@ -1,10 +1,14 @@
 package script;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import POM.home_pg;
@@ -15,9 +19,11 @@ public class homepg extends openbrowser {
 	@Test
 	public void banners() throws Exception {
 		home_pg hp = new home_pg(driver);
+		Properties prop = new Properties();
+		prop.load(new FileInputStream("./data.properties"));
 //		Assert sa = new Assert();
 
-		//Header Ad
+		// Header Ad
 //		System.out.println("Header Ad: ");
 //		hp.headerad(driver);
 //		ArrayList<String> wind = new ArrayList<String>(driver.getWindowHandles());
@@ -47,8 +53,8 @@ public class homepg extends openbrowser {
 //		hp.closead(driver);
 //		actual = (driver.findElement(By.xpath("//a[@class=\"cms_index_index_topbanner\"]/img"))).getAttribute("display");
 //		sa.assertEquals(actual, "none");
-		
-		//Login
+
+		// Login
 //		hp.log();
 //		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //		hp.closelogin();
@@ -61,7 +67,7 @@ public class homepg extends openbrowser {
 //		//Cart
 //		hp.cart(driver);
 //		stat(driver.getCurrentUrl());
-		
+
 		// Banners
 //		System.out.println("Banners: ");
 //		try {
@@ -77,8 +83,8 @@ public class homepg extends openbrowser {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		
-		//Mega Menu
+
+		// Mega Menu
 //		System.out.println("Mega Menu: ");
 //		for(int num=1 ; num<=10 ; num++) {
 //			WebElement ele = driver.findElement(By.xpath("//ol[@class=\"nav-primary\"]/li["+num+"]"));
@@ -86,7 +92,7 @@ public class homepg extends openbrowser {
 //			stat(driver.getCurrentUrl());
 //			driver.navigate().back();
 //		}
-		
+
 		// Most Impo
 //		System.out.println("Most Impo: ");
 //		for (int num = 1; num < 10; num++) {
@@ -101,27 +107,55 @@ public class homepg extends openbrowser {
 //				System.out.println("Link "+num+" is not Clicked");
 //			}
 //		}
+
+		// Milestone Products
+//		System.out.println("Milestone Products:");
+//		try {
+//			hp.mileimg1(driver);
+//		} catch (Exception e) {
+//			System.out.println("Milestone link 1 not Clicked");
+//		}
+//		stat(driver.getCurrentUrl());
+//		try {
+//			hp.mileimg2(driver);
+//		} catch (Exception e) {
+//			System.out.println("Milestone link 1 not Clicked");
+//		}
+//		stat(driver.getCurrentUrl());
+//		try {
+//			hp.mileimg3(driver);
+//		} catch (Exception e) {
+//			System.out.println("Milestone link 1 not Clicked");
+//		}
+//		stat(driver.getCurrentUrl());
+
+		// Maternity Kits
+//		for (int i = 20; i < 22; i++) {
+//			for (int num = 1; num < 4; num++) {
+//				WebElement ele = driver.findElement(By.xpath("//div[@aria-describedby=\"slick-slide"+i+"\"]/div[2]/div/ul/li["+num+"]/a/span"));
+//				hp.matercheck(driver, ele);
+//				stat(driver.getCurrentUrl());
+//				driver.navigate().back();
+//			}
+//		}
 		
-		//Milestone Products
-		System.out.println("Milestone Products:");
+		//Subscribe
+//		String val = properties.propData();
+			//Click when No Data Entered
+		hp.subcheckimg(driver);
+		hp.subSubmit(driver);
+		hp.mailid(prop.getProperty("check"));
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		String actual = hp.emptySub();
+		Thread.sleep(10000);
 		try {
-			hp.mileimg1(driver);
+		Assert.assertEquals(actual, "This is a required field.");
+		System.out.println("Error Msg Displayed");
 		}catch(Exception e) {
-			System.out.println("Milestone link 1 not Clicked");
+			System.out.println("Error Msg NOT Displayed");
 		}
-		stat(driver.getCurrentUrl());
-		try {
-			hp.mileimg2(driver);
-		}catch(Exception e) {
-			System.out.println("Milestone link 1 not Clicked");
-		}
-		stat(driver.getCurrentUrl());
-		try {
-			hp.mileimg3(driver);
-		}catch(Exception e) {
-			System.out.println("Milestone link 1 not Clicked");
-		}
-		stat(driver.getCurrentUrl());
+//		hp.mailid(prop.getProperty("submail"));
+
 //		sa.assertAll();
 	}
 
@@ -153,5 +187,5 @@ public class homepg extends openbrowser {
 	public void scroll() {
 
 	}
-	
+
 }

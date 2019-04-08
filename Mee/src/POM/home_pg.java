@@ -175,24 +175,39 @@ public class home_pg {
 	private WebElement milestonelink3;
 	
 	//Maternity Kit
-	@FindBy(xpath="//ul[@class=\"product-type\"]/li[1]/a")
-	private WebElement matkitlink1;
+	@FindBy(xpath="(//button[@class=\"slick-next slick-arrow\"])[2]/i")
+	private WebElement next;
 	
-	@FindBy(xpath="//ul[@class=\"product-type\"]/li[2]/a")
-	private WebElement matkitlink2;
+//	@FindBy(xpath="//ul[@class=\"product-type\"]/li[1]/a")
+//	private WebElement matkitlink1;
+//	
+//	@FindBy(xpath="//ul[@class=\"product-type\"]/li[2]/a")
+//	private WebElement matkitlink2;
+//	
+//	@FindBy(xpath="//ul[@class=\"product-type\"]/li[3]/a")
+//	private WebElement matkitlink3;
 	
-	@FindBy(xpath="//ul[@class=\"product-type\"]/li[3]/a")
-	private WebElement matkitlink3;
+//	@FindBy(xpath="//div[@aria-describedby=\"slick-slide20\"]")
+//	private WebElement matcheck;
 	
 	@FindBy(xpath="//div[@class=\"bestseller\"]/.//div[@id=\"proslide\"]/.//div[@class=\"slick-track\"]/.//div[@data-slick-index=\"-4\"]")
 	private WebElement bestlist;
 	
 	//Our Help
-	@FindBy(xpath="(//div[@class=\"our-help\"]/.//div[@class=\"item-row\"]/div)[1]/.//div[@class=\"form-picker\"]/form/input")
-	private WebElement helpmail;
+	@FindBy(xpath="(//div[@class=\"form-picker\"])[1]")
+	private WebElement subimg;
 	
-	@FindBy(xpath="(//div[@class=\"our-help\"]/.//div[@class=\"item-row\"]/div)[1]/.//div[@class=\"form-picker\"]/form/button/span")
-	private WebElement helpmailsubmit;
+	@FindBy(xpath="//input[@id=\"newsletter\"]")
+	private WebElement submail;
+	
+	@FindBy(xpath="//button[@title=\"Subscribe\"]")
+	private WebElement subsubmit;
+	
+	@FindBy(xpath="//ul[@class=\"messages\"]/li/ul/li/span")
+	private WebElement successmsg;
+	
+	@FindBy(xpath="//div[@id=\"advice-required-entry-newsletter\"]")
+	private WebElement emptycheck;
 	
 	@FindBy(xpath="(//div[@class=\"our-help\"]/.//div[@class=\"item-row\"]/div)[2]/.//div[@class=\"form-picker\"]/a")
 	private WebElement helpcertificate;
@@ -480,26 +495,52 @@ public class home_pg {
 	//Milestone Products
 	public void mileimg1(WebDriver driver) {
 //		milestoneimg1.click();
-		actMove(driver, mileimg1);
+//		actMove(driver, mileimg1);
 		actClick(driver, milestoneimg1);
 	}
 	public void mileimg2(WebDriver driver) {
 //		milestoneimg2.click();
-		actMove(driver, mileimg2);
+//		actMove(driver, mileimg2);
 		actClick(driver, milestoneimg2);
 	}
 	public void mileimg3(WebDriver driver) {
 //		milestoneimg3.click();
-		actMove(driver, mileimg3);
+//		actMove(driver, mileimg3);
 		actClick(driver, milestoneimg3);
 	}
-	public void milelink1() {
-		milestonelink1.click();
+//	public void matlink(WebDriver driver, WebElement element) {
+//		actClick(driver, element);
+//	}
+	public void arrow(WebDriver driver,WebElement ele) {
+		actClick(driver, ele);
 	}
-	public void milelink2() {
-		milestonelink2.click();
+	public void matercheck(WebDriver driver,WebElement ele) {
+		String val = ele.getAttribute("aria-hidden");
+		if(val == "false") {
+			waiting.waitClick(driver, ele);
+			actClick(driver,ele);
+		}else {
+			arrow(driver,ele);
+			actClick(driver, ele);
+		}
 	}
-	public void milelink3() {
-		milestonelink3.click();
+	
+	public void subcheckimg(WebDriver driver) {
+		actMove(driver, subimg);
+	}
+	
+	public void mailid(String mail) {
+		submail.sendKeys(mail);
+	}
+	
+	public void subSubmit(WebDriver driver) {
+		actClick(driver, subsubmit);
+	}
+	public void succMsg(WebDriver driver) {
+		waiting.waitVisi(driver, successmsg);
+		System.out.println(successmsg);
+	}
+	public String emptySub() {
+		return emptycheck.getText();
 	}
 }

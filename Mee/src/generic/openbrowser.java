@@ -14,8 +14,8 @@ public class openbrowser implements auto_constant{
 		System.setProperty(key, value);
 		ChromeOptions co = new ChromeOptions();
 		co.setExperimentalOption("useAutomationExtension", false);
-		co.addArguments("--headless");
-		driver = new ChromeDriver(co);
+//		co.addArguments("--headless");
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(url);
 	}
