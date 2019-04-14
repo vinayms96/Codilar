@@ -26,4 +26,13 @@ public class waiting{
 		}
 	}
 	
+//	public static void waitTextPres(WebDriver driver, WebElement element) {
+//		try {
+//			WebDriverWait w = new WebDriverWait(driver, 15);	
+//			w.until(ExpectedConditions.tex
+//			}catch(Exception e) {
+//				Reporter.log("Element Not Found",true);
+//			}
+//	}
+	
 }
