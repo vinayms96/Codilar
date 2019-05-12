@@ -12,10 +12,11 @@ public class openBrowser implements auto_constant{
 	@BeforeTest
 	public void open() {
 		
+		System.setProperty(chromeKey, chromeValue);
 		ChromeOptions co = new ChromeOptions();
 //		co.addArguments("--headless");
 		driver = new ChromeDriver(co);
-		System.out.println("Web Browser Launched");
+		System.out.println("Web Browser Launched\n");
 		driver.manage().window().maximize();
 		driver.get(url);
 		System.out.println("Website launched");
